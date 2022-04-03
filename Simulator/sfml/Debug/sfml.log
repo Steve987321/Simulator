@@ -5,7 +5,7 @@
   imgui_tables.cpp
   imgui_widgets.cpp
   main.cpp
-C:\Users\Grand\source\repos\sfml\sfml\main.cpp(36,120): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+D:\VSProjects\Simulator\Simulator\Simulator\sfml\main.cpp(36,120): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=int
@@ -14,7 +14,7 @@ C:\Users\Grand\source\repos\sfml\sfml\main.cpp(36,120): warning C4244: 'argument
           [
               T=float
           ]
-C:\Users\Grand\source\repos\sfml\sfml\main.cpp(36,86): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+D:\VSProjects\Simulator\Simulator\Simulator\sfml\main.cpp(36,86): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=int
@@ -23,10 +23,11 @@ C:\Users\Grand\source\repos\sfml\sfml\main.cpp(36,86): warning C4244: 'argument'
           [
               T=float
           ]
-C:\Users\Grand\source\repos\sfml\sfml\main.cpp(60,74): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Grand\source\repos\sfml\sfml\main.cpp(61,73): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Grand\source\repos\sfml\sfml\main.cpp(110,101): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
-C:\Users\Grand\source\repos\sfml\sfml\main.cpp(110,76): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
-C:\Users\Grand\source\repos\sfml\sfml\main.cpp(110,51): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
+D:\VSProjects\Simulator\Simulator\Simulator\sfml\main.cpp(60,74): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\VSProjects\Simulator\Simulator\Simulator\sfml\main.cpp(61,73): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\VSProjects\Simulator\Simulator\Simulator\sfml\main.cpp(110,101): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
+D:\VSProjects\Simulator\Simulator\Simulator\sfml\main.cpp(110,76): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
+D:\VSProjects\Simulator\Simulator\Simulator\sfml\main.cpp(110,51): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
   Generating Code...
-  sfml.vcxproj -> C:\Users\Grand\source\repos\sfml\Debug\Simulator.exe
+  LINK : D:\VSProjects\Simulator\Simulator\Simulator\Debug\Simulator.exe not found or not built by the last incremental link; performing full link
+  sfml.vcxproj -> D:\VSProjects\Simulator\Simulator\Simulator\Debug\Simulator.exe
