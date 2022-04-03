@@ -2,6 +2,7 @@
 
 #include "main.h"
 #include "Circle.h"
+#include "Physics.h"
 
 int main()
 {
@@ -90,7 +91,6 @@ int main()
 		ImGui::Begin("Global Settings");
 
 		ImGui::Checkbox("Gravity", &tsim::physics::gravity);
-		ImGui::Text("Formula: velocity = Gravity Amount(massobj1 * massobj2) / distance");
 		ImGui::SliderFloat("Gravity Amount", &tsim::physics::gravityf, 0.1f, 10.f);
 
 		ImGui::End();
@@ -100,7 +100,7 @@ int main()
 		if (tsim::physics::gravity) {
 			if (circle.getPosition().y < groundlevel) {
 				float distance = circle.getPosition().y - groundlevel;
-				float vel = tsim::physics::gravityf * (c1.mass / distance);
+				float vel = physics::calc_gravity_velocity(c1.mass, distance, tsim::physics::gravityf);
 				c1.posy -= vel;
 				//y += tsim::physics::gravityf
 			}
