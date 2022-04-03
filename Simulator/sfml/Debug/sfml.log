@@ -1,0 +1,32 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(491,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (sfml.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  imgui-SFML.cpp
+  imgui.cpp
+  imgui_draw.cpp
+  imgui_tables.cpp
+  imgui_widgets.cpp
+  main.cpp
+C:\Users\Grand\source\repos\sfml\sfml\main.cpp(36,120): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Grand\source\repos\sfml\sfml\main.cpp(36,86): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Grand\source\repos\sfml\sfml\main.cpp(60,74): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Grand\source\repos\sfml\sfml\main.cpp(61,73): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Grand\source\repos\sfml\sfml\main.cpp(110,101): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
+C:\Users\Grand\source\repos\sfml\sfml\main.cpp(110,76): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
+C:\Users\Grand\source\repos\sfml\sfml\main.cpp(110,51): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
+  Generating Code...
+  sfml.vcxproj -> C:\Users\Grand\source\repos\sfml\Debug\Simulator.exe
