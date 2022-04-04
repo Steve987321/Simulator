@@ -3,24 +3,32 @@
 #include "main.h"
 #include "Circle.h"
 #include "Physics.h"
+#include "toadsim.h"
 
 int main()
 {
-	float groundlevel = 780.f;
-
-	Circle c1("Circle1");
-
-	sf::RenderWindow window(sf::VideoMode(tsim::info::window_sizeX, tsim::info::window_sizeY), tsim::info::title);
+	const int max_circles = 5;
+	//5 circle objects
+	Circle circles[max_circles];
+	circles[0].name = "circle1";
+	circles[1].name = "circle2";
+	circles[2].name = "circle3";
+	circles[3].name = "circle4";
+	circles[4].name = "circle5";
 	
+	circles[0].setColor(255, 255, 255);
+	circles[1].setColor(255, 255, 255);
+	circles[2].setColor(255, 255, 255);
+	circles[3].setColor(255, 255, 255);
+	circles[4].setColor(255, 255, 255);
+
+	//vars for imgui
+	char objectName[16] = "";
+	int itemInspecting = 0;
+
+	//sfml init
+	sf::RenderWindow window(sf::VideoMode(toad::info::window_sizeX, toad::info::window_sizeY), toad::info::title);
 	ImGui::SFML::Init(window);
-
-	sf::CircleShape circle(20.f);
-	circle.setFillColor(sf::Color::Red);
-	circle.setOutlineColor(sf::Color(2, 2, 2));
-	circle.setScale(sf::Vector2f(0.5, 0.5));
-	circle.setPosition(sf::Vector2f(10, 10));
-
-	c1.circleSegments = circle.getPointCount();
 	
 	sf::Clock deltaClock;
 
@@ -31,46 +39,68 @@ int main()
 
 			ImGui::SFML::ProcessEvent(event);
 
-			if (event.type == sf::Event::MouseButtonPressed) {
-				if (event.mouseButton.button == sf::Mouse::Left) {
-					//test = !test;
-					if (circle.getLocalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y))) {
-						c1.inspecting = true;
-					}
-					else {
-						c1.inspecting = false;
-					}
-					circle.getGlobalBounds();
-				}
-			}
+			if (event.type == sf::Event::MouseButtonPressed) 
+				if (event.mouseButton.button == sf::Mouse::Left) 
+					if (sf::Mouse::getPosition(window).x < 600) 
+						for (int i = 0; i < max_circles; i++)
+							if (circles[i].circle.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)))
+							{
+								strncpy_s(objectName, circles[i].name.c_str(), sizeof(circles[i].name));
+								itemInspecting = i;
+								break;
+							}
 
 			if (event.type == sf::Event::Closed) {
 				window.close();
 			}
 		}
 
-		ImGui::SFML::Update(window, deltaClock.restart());
+		//apply pos data to real pos
+		for (int i = 0; i < max_circles; i++) {
+			circles[i].posx = circles[i].circle.getPosition().x;
+			circles[i].posy = circles[i].circle.getPosition().y;
+		}
+
+		sf::Time dt = deltaClock.restart();
+		ImGui::SFML::Update(window, dt);
+
+		//global settings
+
+		//all the objects 
+		ImGui::Begin("Objects");
+
+		for (int i = 0; i < max_circles; i++) {
+			if (ImGui::Button(circles[i].name.c_str(), ImVec2(100, 20))) {
+				strncpy_s(objectName, circles[i].name.c_str(), sizeof(circles[i].name));
+				itemInspecting = i;
+				break;
+			}
+		}
+
+		ImGui::End();
 
 		//imgui
 		ImGui::Begin("Object Options", nullptr);//ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize);
 
-		c1.posx = circle.getPosition().x;
-		c1.posy = circle.getPosition().y;
+		ImGui::SetNextItemWidth(ImGui::CalcTextSize(objectName).x + 10.f);
+		ImGui::InputText("##ObjectName", objectName, IM_ARRAYSIZE(objectName));
+		ImGui::SameLine();
+		ImGui::SetCursorPosX(ImGui::GetWindowSize().x - 50.f);
+		ImGui::Checkbox("##ActiveStatus", &circles[itemInspecting].active);
 
-		ImGui::ColorEdit3("Circle Color", c1.circleColor);
-		ImGui::SliderFloat("Position X", &c1.posx, 0, tsim::info::window_sizeX - 20);
-		ImGui::SliderFloat("Position Y", &c1.posy, 0, tsim::info::window_sizeY- 20);
+		ImGui::ColorEdit3("Circle Color", circles[itemInspecting].circleColor);
+		ImGui::SliderFloat("Position X", &circles[itemInspecting].posx, 0, toad::info::window_sizeX - 20);
+		ImGui::SliderFloat("Position Y", &circles[itemInspecting].posy, 0, toad::info::window_sizeY - 20);
 
 		ImGui::BeginChild("Shape Options", ImVec2(ImGui::GetWindowWidth() - 20, 150), true);
 		ImGui::SetCursorPosX(ImGui::GetWindowSize().x / 2 - ImGui::CalcTextSize("Shape Options").x / 2);
-		ImGui::TextColored(ImColor(100, 100, 100),"Shape Options");
-		ImGui::SliderFloat("Circle Scale X", &c1.circleScaleX, 0.1f, 10.f);
-		ImGui::SliderFloat("Circle Scale Y", &c1.circleScaleY, 0.1f, 10.f);
-		ImGui::SliderInt("Segment Count", &c1.circleSegments, 3, 100);
+		ImGui::TextColored(ImColor(100, 100, 100), "Shape Options");
+		ImGui::SliderFloat("Radius", &circles[itemInspecting].radius, 0.5f, 50.f);
+		ImGui::SliderInt("Segment Count", &circles[itemInspecting].circleSegments, 3, 100);
 
 		if (ImGui::Button("Apply")) {
-			circle.setPointCount(c1.circleSegments);
-			circle.setScale(c1.circleScaleX, c1.circleScaleY);
+			circles[itemInspecting].circle.setPointCount(circles[itemInspecting].circleSegments);
+			circles[itemInspecting].circle.setRadius(circles[itemInspecting].radius);
 		}
 
 		ImGui::EndChild();
@@ -79,42 +109,53 @@ int main()
 		ImGui::SetCursorPosX(ImGui::GetWindowSize().x / 2 - ImGui::CalcTextSize("Physics Options").x / 2);
 		ImGui::TextColored(ImColor(100, 100, 100), "Physics Options");
 
-		ImGui::SliderFloat("Object Mass", &c1.mass, 0.f, 20.f);
+		ImGui::SliderFloat("Object Mass", &circles[itemInspecting].mass, 0.f, 20.f);
 
-		//ImGui::Checkbox("Emit Gravity", &tsim::physics::gravity);
+		//ImGui::Checkbox("Emit Gravity", &toad::physics::gravity);
 
 		ImGui::EndChild();
 
 		ImGui::End();
-		
 
 		ImGui::Begin("Global Settings");
 
-		ImGui::Checkbox("Gravity", &tsim::physics::gravity);
-		ImGui::SliderFloat("Gravity Amount", &tsim::physics::gravityf, 0.1f, 10.f);
+		ImGui::Checkbox("Gravity", &toad::physics::gravity);
+		ImGui::SliderFloat("Gravity Amount", &toad::physics::gravityf, 0.1f, 10.f);
 
 		ImGui::End();
 		//background circleColoror
-		window.clear(sf::Color::Black);
 
-		if (tsim::physics::gravity) {
-			if (circle.getPosition().y < groundlevel) {
-				float distance = circle.getPosition().y - groundlevel;
-				float vel = physics::calc_gravity_velocity(c1.mass, distance, tsim::physics::gravityf);
-				c1.posy -= vel;
-				//y += tsim::physics::gravityf
+		//update gravity
+		if (toad::physics::gravity) {
+			for (int i = 0; i < max_circles; i++) {
+				if (circles[i].active) {
+					if (circles[i].circle.getPosition().y < toad::info::window_sizeY - circles[i].circle.getRadius()) {
+						float distance = circles[i].circle.getPosition().y - toad::info::window_sizeY - circles[i].circle.getRadius();
+						float pos = physics::calc_gravity_velocity(circles[i].mass, distance, toad::physics::gravityf);
+						circles[i].posy -= pos * dt.asSeconds() * 1000;
+						circles[i].circle.setPosition(circles[i].posx, circles[i].posy);
+						//y += toad::physics::gravityf
+					}
+				}
 			}
 		}
 
-		circle.setPosition(sf::Vector2f(c1.posx, c1.posy));
-		circle.setFillColor(sf::Color(c1.circleColor[0] * 255, c1.circleColor[1] * 255, c1.circleColor[2] * 255));
+		//options to update live
+		circles[itemInspecting].circle.setPosition(sf::Vector2f(circles[itemInspecting].posx, circles[itemInspecting].posy));
+		circles[itemInspecting].circle.setFillColor(sf::Color(circles[itemInspecting].circleColor[itemInspecting] * 255, circles[itemInspecting].circleColor[1] * 255, circles[itemInspecting].circleColor[2] * 255));
 
-		///////draw here//////
-		
-		window.draw(circle);
+		window.clear(sf::Color::Black);
+		//--------------------draw here------------------------//
+
+		//draw shapes color problem?? 255 255 255
+		for (Circle ci : circles)
+			if (ci.active) 
+				window.draw(ci.circle);
+
+		//draw ui
 		ImGui::SFML::Render(window);
 
-		///////draw here//////
+		//--------------------draw here-------------------------//
 
 
 		window.display();

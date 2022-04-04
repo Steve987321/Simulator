@@ -1,6 +1,6 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(491,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (sfml.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   main.cpp
-D:\VSProjects\Simulator\Simulator\Simulator\sfml\main.cpp(37,120): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+D:\VSProjects\Simulator\Simulator\Simulator\sfml\main.cpp(46,134): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=int
@@ -9,7 +9,7 @@ D:\VSProjects\Simulator\Simulator\Simulator\sfml\main.cpp(37,120): warning C4244
           [
               T=float
           ]
-D:\VSProjects\Simulator\Simulator\Simulator\sfml\main.cpp(37,86): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+D:\VSProjects\Simulator\Simulator\Simulator\sfml\main.cpp(46,100): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=int
@@ -18,9 +18,10 @@ D:\VSProjects\Simulator\Simulator\Simulator\sfml\main.cpp(37,86): warning C4244:
           [
               T=float
           ]
-D:\VSProjects\Simulator\Simulator\Simulator\sfml\main.cpp(61,74): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\VSProjects\Simulator\Simulator\Simulator\sfml\main.cpp(62,73): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\VSProjects\Simulator\Simulator\Simulator\sfml\main.cpp(111,101): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
-D:\VSProjects\Simulator\Simulator\Simulator\sfml\main.cpp(111,76): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
-D:\VSProjects\Simulator\Simulator\Simulator\sfml\main.cpp(111,51): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
+D:\VSProjects\Simulator\Simulator\Simulator\sfml\main.cpp(92,95): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\VSProjects\Simulator\Simulator\Simulator\sfml\main.cpp(93,95): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\VSProjects\Simulator\Simulator\Simulator\sfml\main.cpp(145,201): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
+D:\VSProjects\Simulator\Simulator\Simulator\sfml\main.cpp(145,155): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
+D:\VSProjects\Simulator\Simulator\Simulator\sfml\main.cpp(145,109): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
+D:\VSProjects\Simulator\Simulator\Simulator\sfml\main.cpp(166,1): warning C4506: no definition for inline function 'float gameObject::dist(sf::Vector2f,sf::Vector2f)'
   sfml.vcxproj -> D:\VSProjects\Simulator\Simulator\Simulator\Debug\Simulator.exe

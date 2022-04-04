@@ -1,16 +1,27 @@
 #pragma once
-#include "main.h"
+#include "imgui/imgui.h"
+#include "imgui/imgui-SFML.h"
+#include <SFML/Graphics.hpp>
 
 class Circle {
+private:
+	void init();
 public:
-	Circle(std::string Name) {
-		name = Name;
+	Circle() {
+		init();
 	}
-	//object name
-	std::string name;
 
-	//ImGui inspecting object
-	bool inspecting = false;
+	//set color of object of rgb channels and divide it by 255
+	void setColor(float r, float g, float b);
+
+	//object
+	sf::CircleShape circle;
+
+	//get and set object name
+	std::string name = "circle";
+
+	//check if object is active or inactive
+	//bool isActive = false;
 
 	//object mass
 	float mass = 5.f;
@@ -18,6 +29,7 @@ public:
 	//object gravity pull (later)
 	//bool emitgravity = false;
 
+	//object color
 	float circleColor[3] = { 255.f / 255, 0.f / 255, 0.f / 255 };
 
 	//object position
@@ -26,5 +38,10 @@ public:
 	//amount of segments object is made off
 	int circleSegments;
 
-	float circleScaleX = 0.5, circleScaleY = 0.5;
+	//object radius
+	float radius = 20;
+
+	//check if we want to render object on window
+	bool active = false;
+
 };

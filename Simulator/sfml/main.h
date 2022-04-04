@@ -5,7 +5,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
-namespace tsim {
+namespace toad {
 	namespace info {
 		extern char title[] = "Toad Simulations";
 		extern int window_sizeX = 1000;
@@ -18,5 +18,4 @@ namespace tsim {
 		extern float gravityf = 9.89f;
 		extern float groundmass = 5.f;
 	}
-	
 }
