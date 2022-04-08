@@ -5,22 +5,18 @@
 #include "Physics.h"
 #include "toadsim.h"
 
+#include <Windows.h>
+
 int main()
 {
-	const int max_circles = 5;
-	//5 circle objects
-	Circle circles[max_circles];
-	circles[0].name = "circle1";
-	circles[1].name = "circle2";
-	circles[2].name = "circle3";
-	circles[3].name = "circle4";
-	circles[4].name = "circle5";
+	std::vector<Circle> circles;
 	
+	//5 circle objects
+	circles.push_back(Circle::Circle());
+
+	circles[0].name = "circle1";
 	circles[0].setColor(255, 255, 255);
-	circles[1].setColor(255, 255, 255);
-	circles[2].setColor(255, 255, 255);
-	circles[3].setColor(255, 255, 255);
-	circles[4].setColor(255, 255, 255);
+	circles[0].active = true;
 
 	//vars for imgui
 	char objectName[16] = "";
@@ -39,44 +35,46 @@ int main()
 
 			ImGui::SFML::ProcessEvent(event);
 
-			if (event.type == sf::Event::MouseButtonPressed) 
-				if (event.mouseButton.button == sf::Mouse::Left) 
-					if (sf::Mouse::getPosition(window).x < 600) 
-						for (int i = 0; i < max_circles; i++)
+			if (event.type == sf::Event::MouseButtonPressed) {
+
+				if (event.mouseButton.button == sf::Mouse::Left)
+					if (sf::Mouse::getPosition(window).x < 600)
+						for (int i = 0; i < circles.size(); i++)
 							if (circles[i].circle.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)))
 							{
 								strncpy_s(objectName, circles[i].name.c_str(), sizeof(circles[i].name));
 								itemInspecting = i;
 								break;
 							}
-
+			}
 			if (event.type == sf::Event::Closed) {
 				window.close();
 			}
 		}
 
 		//apply pos data to real pos
-		for (int i = 0; i < max_circles; i++) {
+		for (int i = 0; i < circles.size(); i++) {
 			circles[i].posx = circles[i].circle.getPosition().x;
 			circles[i].posy = circles[i].circle.getPosition().y;
 		}
 
+		//deltatime
 		sf::Time dt = deltaClock.restart();
+		
 		ImGui::SFML::Update(window, dt);
 
-		//global settings
-
 		//all the objects 
-		ImGui::Begin("Objects");
+		ImGui::Begin("Scene");
 
-		for (int i = 0; i < max_circles; i++) {
+		for (int i = 0; i < circles.size(); i++) {
 			if (ImGui::Button(circles[i].name.c_str(), ImVec2(100, 20))) {
 				strncpy_s(objectName, circles[i].name.c_str(), sizeof(circles[i].name));
 				itemInspecting = i;
 				break;
 			}
 		}
-
+		if (ImGui::Button("Add")) gameObject::add_object(circles);
+		
 		ImGui::End();
 
 		//imgui
@@ -85,9 +83,13 @@ int main()
 		ImGui::SetNextItemWidth(ImGui::CalcTextSize(objectName).x + 10.f);
 		ImGui::InputText("##ObjectName", objectName, IM_ARRAYSIZE(objectName));
 		ImGui::SameLine();
-		ImGui::SetCursorPosX(ImGui::GetWindowSize().x - 50.f);
-		ImGui::Checkbox("##ActiveStatus", &circles[itemInspecting].active);
+		ImGui::SetCursorPosX(ImGui::GetWindowSize().x - 100.f);
 
+		//delete object
+		if (ImGui::Button("Delete")) gameObject::delete_object(circles, itemInspecting);
+		ImGui::SameLine();
+		ImGui::Checkbox("##ActiveStatus", &circles[itemInspecting].active);
+		
 		ImGui::ColorEdit3("Circle Color", circles[itemInspecting].circleColor);
 		ImGui::SliderFloat("Position X", &circles[itemInspecting].posx, 0, toad::info::window_sizeX - 20);
 		ImGui::SliderFloat("Position Y", &circles[itemInspecting].posy, 0, toad::info::window_sizeY - 20);
@@ -123,11 +125,10 @@ int main()
 		ImGui::SliderFloat("Gravity Amount", &toad::physics::gravityf, 0.1f, 10.f);
 
 		ImGui::End();
-		//background circleColoror
 
 		//update gravity
 		if (toad::physics::gravity) {
-			for (int i = 0; i < max_circles; i++) {
+			for (int i = 0; i < circles.size(); i++) {
 				if (circles[i].active) {
 					if (circles[i].circle.getPosition().y < toad::info::window_sizeY - circles[i].circle.getRadius()) {
 						float distance = circles[i].circle.getPosition().y - toad::info::window_sizeY - circles[i].circle.getRadius();
@@ -156,7 +157,6 @@ int main()
 		ImGui::SFML::Render(window);
 
 		//--------------------draw here-------------------------//
-
 
 		window.display();
 	}
