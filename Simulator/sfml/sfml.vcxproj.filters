@@ -83,5 +83,8 @@
     <ClInclude Include="toadsim.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="vars.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -11,6 +11,8 @@ public:
 		init();
 	}
 
+	void update_position(Circle& circle,std::vector<Circle>& circles, float simSpeed);
+
 	//set color of object of rgb channels and divide it by 255
 	void setColor(float r, float g, float b);
 
@@ -44,4 +46,6 @@ public:
 	//check if we want to render object on window
 	bool active = false;
 
+	//current object velocity
+	float velx = 0, vely = 0;
 };
