@@ -11,7 +11,7 @@ public:
 	static std::string char_to_string(char chr[]);
 };
 
-class gameObject {
+class Object {
 public:
 	//gets distance between 2 objects in pixels
 	static inline float dist(sf::Vector2f pos1, sf::Vector2f pos2) {
@@ -23,4 +23,9 @@ public:
 
 	//delete an object
 	static void delete_object(std::vector<Circle>& circles,int& element);
+};
+
+class ui {
+public:
+	static void decorations();
 };

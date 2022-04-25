@@ -1,23 +1,37 @@
 //#pragma warning(disable:4996) CRT_SECURE_NOWARNIGNSfa;lkjl;kf...
+#define DEBUG
 
 #include "main.h"
 #include "Circle.h"
 #include "Physics.h"
 #include "toadsim.h"
 #include "vars.h"
+#include "logger.h"
 #include <Windows.h>
 
-bool vars::gravity = false;
-float vars::gravityf = 6.6742E-11;
-float vars::groundmass = 5.f;
+//global variables 
 float vars::deltaTime = 0.f;
-float vars::simSpeed = 2000; // day
+float vars::g_gravityf = 6.6742E-11;
+float vars::g_simSpeed = 2000;
+
+ImColor vars::colorTheme::dark_gray = ImColor(21, 21, 21);
+ImColor vars::colorTheme::gray = ImColor(36, 36, 36);
+ImColor vars::colorTheme::light_gray = ImColor(46, 46, 46);
+ImColor vars::colorTheme::light_blue = ImColor(48, 173, 228);
+ImColor vars::colorTheme::lighter_black = ImColor(26, 26, 26);
 
 int main()
 {
+	//init
+	g_log = std::make_unique<logger>();
+
+	log_debug("Initializing");
+
+	log_debug("Initializing objects");
+
 	//add 2 circles to scene on start
 	std::vector<Circle> circles;
-	
+
 	circles.push_back(Circle::Circle());
 	circles.push_back(Circle::Circle());
 
@@ -32,16 +46,25 @@ int main()
 	circles[1].active = true;
 	circles[1].circle.setPosition(200, 200);
 	circles[1].mass = 100;
-	
+
+	log_ok("Initialized objects");
 
 	//vars for imgui
 	char objectName[16] = "circle1";
 	int itemInspecting = 0;
+	bool object_creation_menu = false;
+	sf::Vector2i cursorpos;
+	//int fps
+
 
 	//sfml init
+	log_debug("Initializing window");
+
 	sf::RenderWindow window(sf::VideoMode(toad::window_sizeX, toad::window_sizeY), toad::title);
-	ImGui::SFML::Init(window);
-	
+	if (ImGui::SFML::Init(window)) log_ok("Initialized window");
+	else log_errorf("Initialization failed %d", GetLastError());
+
+	window.setFramerateLimit(60);
 	sf::Clock deltaClock;
 	sf::Time dt;
 
@@ -52,10 +75,13 @@ int main()
 
 			ImGui::SFML::ProcessEvent(event);
 
-			if (event.type == sf::Event::MouseButtonPressed) {
-
-				if (event.mouseButton.button == sf::Mouse::Left)
-					if (sf::Mouse::getPosition(window).x < 600)
+			//mouse button events
+			if (event.type == sf::Event::MouseButtonPressed) 
+			{
+				if (!ImGui::IsWindowHovered(ImGuiHoveredFlags_AnyWindow)) 
+				{
+					//lmb
+					if (event.mouseButton.button == sf::Mouse::Left) {
 						for (int i = 0; i < circles.size(); i++)
 							if (circles[i].circle.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)))
 							{
@@ -63,12 +89,20 @@ int main()
 								itemInspecting = i;
 								break;
 							}
+						if (object_creation_menu)
+							object_creation_menu = false;
+					}
+				
+					//rmb
+					else if (event.mouseButton.button == sf::Mouse::Right) {
+						object_creation_menu = true;
+						cursorpos = sf::Mouse::getPosition(window);
+					}
+				}
 			}
-			if (event.type == sf::Event::Closed) {
-				window.close();
-			}
-		}
 
+			if (event.type == sf::Event::Closed) { log_ok("Closing window"); window.close(); }
+		}
 		//apply pos data to real pos
 		for (int i = 0; i < circles.size(); i++) {
 			circles[i].posx = circles[i].circle.getPosition().x;
@@ -80,36 +114,77 @@ int main()
 		vars::deltaTime = dt.asSeconds();
 		ImGui::SFML::Update(window, dt);
 
-		//all the objects 
+		//colors and styles
+		ui::decorations();
 
+		//TODO: make so when left click on dis window it dont go away
+		if (object_creation_menu) {
+			ImGui::SetNextWindowPos(ImVec2(cursorpos.x, cursorpos.y));
+			ImGui::Begin("Create Object");
+
+			//SELECTIONS
+
+			ImGui::End();
+		}
+	
 		//TODO: make settings for creating objects with specific options:
 		//(checkbox("Spawn as active"))
-		ImGui::Begin("Scene", nullptr, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoCollapse);
+		ImGui::Begin("Scene", nullptr, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize);
+		
+		ImGui::BeginListBox("##objectListBox", ImVec2(140, 120));
 
 		for (int i = 0; i < circles.size(); i++) {
+			const bool is_selected = (itemInspecting == i);
+
+			if (circles[i].active) {
+				ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32(255, 255, 255, 255));
+				if (ImGui::Selectable(circles[i].name.c_str(), is_selected)) {
+					strncpy_s(objectName, circles[i].name.c_str(), sizeof(circles[i].name));
+					itemInspecting = i;
+				}
+				ImGui::PopStyleColor();
+			}
+			else {
+				ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32(255, 255, 255, 157));
+				if (ImGui::Selectable(circles[i].name.c_str(), is_selected)) {
+					strncpy_s(objectName, circles[i].name.c_str(), sizeof(circles[i].name));
+					itemInspecting = i;
+				}
+				ImGui::PopStyleColor();
+			}
+			
+			if (is_selected)
+				ImGui::SetItemDefaultFocus();			
+		}
+
+		ImGui::EndListBox();
+
+		// old
+		/*for (int i = 0; i < circles.size(); i++) {
 			if (ImGui::Button(circles[i].name.c_str(), ImVec2(100, 20))) {
 				strncpy_s(objectName, circles[i].name.c_str(), sizeof(circles[i].name));
 				itemInspecting = i;
 				break;
 			}
 		}
+		*/
 
-		if (ImGui::Button("Add")) gameObject::add_object(circles);
+		if (ImGui::Button("Add")) Object::add_object(circles);
 		
 		ImGui::End();
 
 		//imgui
-		ImGui::Begin("Object Options", nullptr, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoCollapse);
+		ImGui::Begin("Object Options", nullptr, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize);
 
 		ImGui::SetNextItemWidth(ImGui::CalcTextSize(objectName).x + 10.f);
 
 		//TODO: make it so it acutally chagnes name
 		ImGui::InputText("##ObjectName", objectName, IM_ARRAYSIZE(objectName));
-		ImGui::SameLine();
+		ImGui::SameLine(); 
 		ImGui::SetCursorPosX(ImGui::GetWindowSize().x - 100.f);
 
 		//delete object
-		if (ImGui::Button("Delete")) gameObject::delete_object(circles, itemInspecting);
+		if (ImGui::Button("Delete")) Object::delete_object(circles, itemInspecting);
 		ImGui::SameLine();
 		ImGui::Checkbox("##ActiveStatus", &circles[itemInspecting].active);
 		
@@ -137,6 +212,9 @@ int main()
 		ImGui::SliderFloat("Object Mass", &circles[itemInspecting].mass, 0.1f, 200.f);
 		ImGui::Text("Velocity X = %f", circles[itemInspecting].velx);
 		ImGui::Text("Velocity Y = %f", circles[itemInspecting].vely);
+		if (ImGui::Button("Reset velocity")) {
+			circles[itemInspecting].velx = 0; circles[itemInspecting].vely = 0;
+		}
 		//ImGui::SliderFloat("VelocityX", &circles[itemInspecting].velx, 0.f, 1000.f);
 		//ImGui::SliderFloat("VelocityY", &circles[itemInspecting].vely, 0.f, 1000.f);
 
@@ -144,29 +222,11 @@ int main()
 		ImGui::End();
 
 		//global physics options
-		ImGui::Begin("Global Settings", nullptr , ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoCollapse);
-
-		ImGui::Checkbox("Gravity", &vars::gravity);
-		ImGui::SliderFloat("Gravity Amount", &vars::gravityf, 0.1f, 10.f);
-		ImGui::SliderFloat("TimeStep", &vars::simSpeed, 1000.f, 5000.f);
+		ImGui::Begin("Global Settings", nullptr , ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize);
+		//ImGui::SliderFloat("Gravity Amount", &vars::g_gravityf, 0.1f, 10.f);
+		ImGui::SliderFloat("simSpeed", &vars::g_simSpeed, 1000.f, 10000.f);
 
 		ImGui::End();		
-
-		//update ground gravity temp
-		/*
-		if (vars::physics::gravity) {
-			for (int i = 0; i < circles.size(); i++) {
-				if (circles[i].active) {
-					if (circles[i].circle.getPosition().y < toad::window_sizeY - circles[i].circle.getRadius()) {
-						float distance = circles[i].circle.getPosition().y - toad::window_sizeY - circles[i].circle.getRadius();
-						float pos = physics::calc_gravity_velocity(circles[i].mass, distance, vars::physics::gravityf);
-						circles[i].posy -= pos * dt.asSeconds() * 1000;
-						circles[i].circle.setPosition(circles[i].posx, circles[i].posy);
-						//y += vars::physics::gravityf
-					}
-				}
-			}
-		}*/
 
 		//options to update live
 		circles[itemInspecting].circle.setPosition(sf::Vector2f(circles[itemInspecting].posx, circles[itemInspecting].posy));
@@ -175,7 +235,7 @@ int main()
 		//update pos 
 		for (Circle& ci : circles) {
 			if (ci.active) {
-				ci.update_position(ci, circles, vars::simSpeed);
+				ci.update_position(ci, circles, vars::g_simSpeed * 1000 * vars::deltaTime);
 			}
 		}
 		

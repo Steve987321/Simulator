@@ -1,8 +1,8 @@
 #include "vars.h"
 #include "Physics.h"
 
-//init circle
-void Circle::init()
+//init
+Circle::Circle() 
 {
 	circle.setRadius(radius);
 	//sfml bug???

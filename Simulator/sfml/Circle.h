@@ -4,13 +4,10 @@
 #include <SFML/Graphics.hpp>
 
 class Circle {
-private:
-	void init();
 public:
-	Circle() {
-		init();
-	}
+	Circle();
 
+	//physics interaction
 	void update_position(Circle& circle,std::vector<Circle>& circles, float simSpeed);
 
 	//set color of object of rgb channels and divide it by 255
