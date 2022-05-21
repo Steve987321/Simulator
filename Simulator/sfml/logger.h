@@ -20,6 +20,7 @@ public:
 	void print(log_type_t type, T msg) {
 		std::unique_lock<std::shared_mutex> lock(mutex);
 		static HANDLE h_console = GetStdHandle(STD_OUTPUT_HANDLE);
+
 		switch (type) {
 		case log_type_t::Error:
 			SetConsoleTextAttribute(h_console, (WORD)type);
@@ -67,18 +68,18 @@ public:
 
 		std::cout << std::endl;
 	}
-
 };
 
-inline std::unique_ptr<logger> g_log;
+
 
 #ifdef DEBUG	
-#define log_debug(x) g_log->print(log_type_t::Log, x)
-#define log_error(x) g_log->print(log_type_t::Error, x)
-#define log_ok(x) g_log->print(log_type_t::Success, x)
-#define log_debugf(x, ...) g_log->print(log_type_t::Log, x, __VA_ARGS__)
-#define log_errorf(x, ...) g_log->print(log_type_t::Error, x, __VA_ARGS__)
-#define log_okf(x, ...) g_log->print(log_type_t::Success, x, __VA_ARGS__)
+inline logger g_log;
+#define log_debug(x) g_log.print(log_type_t::Log, x)
+#define log_error(x) g_log.print(log_type_t::Error, x)
+#define log_ok(x) g_log.print(log_type_t::Success, x)
+#define log_debugf(x, ...) g_log.print(log_type_t::Log, x, __VA_ARGS__)
+#define log_errorf(x, ...) g_log.print(log_type_t::Error, x, __VA_ARGS__)
+#define log_okf(x, ...) g_log.print(log_type_t::Success, x, __VA_ARGS__)
 #else
 #define log_debug(x) NULL
 #define log_error(x) NULL

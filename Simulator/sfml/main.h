@@ -6,7 +6,9 @@
 #include <iostream>
 
 namespace toad {
-	extern char title[] = "Toad Simulations";
-	extern int window_sizeX = 1000;
-	extern int window_sizeY = 800;
+	namespace info {
+		inline char title[] = "Toad Simulations";
+		inline int window_sizeX = 1000;
+		inline int window_sizeY = 800;
+	}
 }

@@ -1,13 +1,16 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(491,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (sfml.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  imgui_widgets.cpp
-  main.cpp
-D:\VSProjects\Simulator\Simulator\sfml\main.cpp(2,1): warning C4005: 'DEBUG': macro redefinition
-D:\VSProjects\Simulator\Simulator\sfml\main.cpp : message : see previous definition of 'DEBUG'
-D:\VSProjects\Simulator\Simulator\sfml\toadsim.h(18,19): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-D:\VSProjects\Simulator\Simulator\sfml\Physics.h(14,15): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-D:\VSProjects\Simulator\Simulator\sfml\main.cpp(14,36): warning C4305: 'initializing': truncation from 'double' to 'float'
-D:\VSProjects\Simulator\Simulator\sfml\main.cpp(85,25): warning C4018: '<': signed/unsigned mismatch
-D:\VSProjects\Simulator\Simulator\sfml\main.cpp(86,134): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+  toad.cpp
+D:\VSProjects\Simulator\Simulator\sfml\Circle.h(10,87): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+D:\VSProjects\Simulator\Simulator\sfml\Circle.h(10,69): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+D:\VSProjects\Simulator\Simulator\sfml\Circle.h(10,78): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+D:\VSProjects\Simulator\Simulator\sfml\vars.h(13,44): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\VSProjects\Simulator\Simulator\sfml\Physics.h(13,15): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\VSProjects\Simulator\Simulator\sfml\toad.cpp(105,20): warning C4018: '<': signed/unsigned mismatch
+D:\VSProjects\Simulator\Simulator\sfml\toad.cpp(116,244): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
+D:\VSProjects\Simulator\Simulator\sfml\toad.cpp(116,188): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
+D:\VSProjects\Simulator\Simulator\sfml\toad.cpp(116,132): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
+D:\VSProjects\Simulator\Simulator\sfml\toad.cpp(141,24): warning C4018: '<': signed/unsigned mismatch
+D:\VSProjects\Simulator\Simulator\sfml\toad.cpp(142,139): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=int
@@ -16,7 +19,7 @@ D:\VSProjects\Simulator\Simulator\sfml\main.cpp(86,134): warning C4244: 'argumen
           [
               T=float
           ]
-D:\VSProjects\Simulator\Simulator\sfml\main.cpp(86,100): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+D:\VSProjects\Simulator\Simulator\sfml\toad.cpp(142,105): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=int
@@ -25,22 +28,4 @@ D:\VSProjects\Simulator\Simulator\sfml\main.cpp(86,100): warning C4244: 'argumen
           [
               T=float
           ]
-D:\VSProjects\Simulator\Simulator\sfml\main.cpp(107,21): warning C4018: '<': signed/unsigned mismatch
-D:\VSProjects\Simulator\Simulator\sfml\main.cpp(122,57): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
-          with
-          [
-              T=int
-          ]
-D:\VSProjects\Simulator\Simulator\sfml\main.cpp(122,44): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
-          with
-          [
-              T=int
-          ]
-D:\VSProjects\Simulator\Simulator\sfml\main.cpp(136,21): warning C4018: '<': signed/unsigned mismatch
-D:\VSProjects\Simulator\Simulator\sfml\main.cpp(192,89): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\VSProjects\Simulator\Simulator\sfml\main.cpp(193,89): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\VSProjects\Simulator\Simulator\sfml\main.cpp(233,201): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
-D:\VSProjects\Simulator\Simulator\sfml\main.cpp(233,155): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
-D:\VSProjects\Simulator\Simulator\sfml\main.cpp(233,109): warning C4244: 'argument': conversion from 'float' to 'sf::Uint8', possible loss of data
-  Generating Code...
   sfml.vcxproj -> D:\VSProjects\Simulator\Simulator\Debug\Simulator.exe

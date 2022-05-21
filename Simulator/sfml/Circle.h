@@ -7,42 +7,30 @@ class Circle {
 public:
 	Circle();
 
-	//physics interaction
-	void update_position(Circle& circle,std::vector<Circle>& circles, float simSpeed);
+	Circle(std::string Name, int X, int Y, int Mass) : name(Name), posx(X), posy(Y), mass(Mass) {}
+	
+	void update_position(std::vector<Circle>& circles, float simSpeed);
 
-	//set color of object of rgb channels and divide it by 255
 	void setColor(float r, float g, float b);
 
-	//object
+	// sfml circleshape object
 	sf::CircleShape circle;
 
-	//get and set object name
 	std::string name = "circle";
 
-	//check if object is active or inactive
-	//bool isActive = false;
-
-	//object mass
 	float mass = 5.f;
-	
-	//object gravity pull (later)
-	//bool emitgravity = false;
 
-	//object color
 	float circleColor[3] = { 255.f / 255, 0.f / 255, 0.f / 255 };
 
-	//object position
 	float posx = 0, posy = 0;
 
-	//amount of segments object is made off
-	int circleSegments;
-
-	//object radius
 	float radius = 20;
+	
+	float velx = 0, vely = 0;
+	
+	//amount of segments object is made off
+	int circleSegments = 10;
 
 	//check if we want to render object on window
-	bool active = false;
-
-	//current object velocity
-	float velx = 0, vely = 0;
+	bool isActive = true;
 };

@@ -1,7 +1,6 @@
 #include "vars.h"
 #include "Physics.h"
 
-//init
 Circle::Circle() 
 {
 	circle.setRadius(radius);
@@ -13,20 +12,18 @@ Circle::Circle()
 	circleSegments = circle.getPointCount();
 }
 
-void Circle::update_position(Circle& circle, std::vector<Circle>& circles, float simSpeed)
+void Circle::update_position(std::vector<Circle>& circles, float simSpeed)
 {
 	float total_vx = 0, total_vy = 0;
-	for (Circle ci : circles) {
-		if (circle.name == ci.name) {
-			continue;
-		}
-		sf::Vector2f vel = physics::calc_gravity_velocity_vec(circle, ci);
+	for (Circle other : circles) {
+		if (this->name == other.name || !this->isActive || !other.isActive) continue;
+		sf::Vector2f vel = physics::calc_gravity_velocity_vec(*this, other);
 		
 		total_vx += vel.x;
 		total_vy += vel.y;
 
-		circle.velx += total_vx / circle.mass * simSpeed;
-		circle.vely += total_vy / circle.mass * simSpeed;
+		this->velx += total_vx / this->mass * simSpeed;
+		this->vely += total_vy / this->mass * simSpeed;
 
 		this->posx += this->velx * simSpeed;
 		this->posy += this->vely * simSpeed;
@@ -36,8 +33,8 @@ void Circle::update_position(Circle& circle, std::vector<Circle>& circles, float
 }
 
 void Circle::setColor(float r, float g, float b)
-{
-	circleColor[0] = r / 255.f;
-	circleColor[1] = g / 255.f;
-	circleColor[2] = b / 255.f;
+{ 
+	this->circleColor[0] = r / 255.f;
+	this->circleColor[1] = g / 255.f;
+	this->circleColor[2] = b / 255.f;
 }

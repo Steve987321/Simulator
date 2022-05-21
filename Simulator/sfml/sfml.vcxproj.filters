@@ -9,44 +9,59 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Header Files\ImGui">
       <UniqueIdentifier>{512b5f06-1096-4b28-b9a0-7e6ed216586e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Sim">
+      <UniqueIdentifier>{3d710fa4-a2f4-4c45-81d7-d65a6c2cfbe6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Sim\utils">
+      <UniqueIdentifier>{ce029dac-464e-461a-a185-f81a5ccb74bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Sim\GUI">
+      <UniqueIdentifier>{04e50926-8411-446e-8e15-ea074de7b08d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Sim\Objects">
+      <UniqueIdentifier>{172ac635-f34e-4620-ab3b-4742288be773}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files\Sim</Filter>
+    </ClCompile>
     <ClCompile Include="imgui\imgui.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="imgui\imgui_draw.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="imgui\imgui_tables.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="imgui\imgui_widgets.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="imgui\imgui-SFML.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="imgui\imgui_widgets.cpp">
+      <Filter>Header Files\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_tables.cpp">
+      <Filter>Header Files\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_draw.cpp">
+      <Filter>Header Files\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="Circle.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Sim\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="toadsim.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="ui.cpp">
+      <Filter>Source Files\Sim\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="helpers.cpp">
+      <Filter>Source Files\Sim\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="toad.cpp">
+      <Filter>Source Files\Sim</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="main.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="imgui\imgui.h">
       <Filter>Header Files\ImGui</Filter>
     </ClInclude>
@@ -74,20 +89,32 @@
     <ClInclude Include="imgui\imstb_truetype.h">
       <Filter>Header Files\ImGui</Filter>
     </ClInclude>
+    <ClInclude Include="main.h">
+      <Filter>Source Files\Sim</Filter>
+    </ClInclude>
     <ClInclude Include="Circle.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Physics.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="toadsim.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vars.h">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files\Sim\Objects</Filter>
     </ClInclude>
     <ClInclude Include="logger.h">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files\Sim\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="vars.h">
+      <Filter>Source Files\Sim\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="ui.h">
+      <Filter>Source Files\Sim\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="helpers.h">
+      <Filter>Source Files\Sim\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Source Files\Sim\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="toad.h">
+      <Filter>Source Files\Sim</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics.h">
+      <Filter>Source Files\Sim\utils</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
