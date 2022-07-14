@@ -9,7 +9,7 @@ public:
 
 	Circle(std::string Name, int X, int Y, int Mass) : name(Name), posx(X), posy(Y), mass(Mass) {}
 	
-	void update_position(std::vector<Circle>& circles, float simSpeed);
+	void update_position(const std::vector<Circle>& circles, const float& simSpeed);
 
 	void setColor(float r, float g, float b);
 

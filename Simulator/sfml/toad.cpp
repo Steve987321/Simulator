@@ -18,6 +18,9 @@ bool init_window()
 /// </summary>
 void load_default_scene()
 {
+
+	//TODO: make it file based
+	
 	vars::circles.push_back(Circle::Circle());
 	vars::circles.push_back(Circle::Circle());
 	vars::circles[0].name = "circle1";
@@ -56,11 +59,16 @@ void render_window_objects()
 	window.display();
 }
 
+/// <summary>
+/// initializes window and object scene.
+/// </summary>
+/// <returns>Wether it has successfully initialized the window </returns>
 bool toad::init()
 {
 	log_debug("Initializing circles");
 
-	//add 2 circles to scene on start
+	//add 2 circles to scene on start 
+	//TODO: Make it file based
 	load_default_scene();
 	
 	log_ok("Initialized objects");

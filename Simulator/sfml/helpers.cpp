@@ -15,15 +15,26 @@ float toad::dist(sf::Vector2f pos1, sf::Vector2f pos2)
 //when size = 1 and name of circle is circle2 there are 2 objects wit same name results in glithch
 void toad::add_object(std::vector<Circle>& circles)
 {
-	circles.push_back(Circle::Circle());
-	circles[circles.size() - 1].name = "circle" + std::to_string(circles.size());
-	circles[circles.size() - 1].setColor(255, 255, 255);
+	size_t i = circles.size() + 1;
+	
+	if (std::strcmp(circles[i-2].name.c_str(), ("circle" + std::to_string(i)).c_str()) == 0) 
+	{
+		while (std::strcmp(circles[i-2].name.c_str(), ("circle" + std::to_string(i)).c_str()) == 0)
+		{
+			i++;
+		}
+	}
+	else
+	{
+		//auto circle = std::make_unique<Circle>();
+		circles.push_back(Circle::Circle());
+		circles[circles.size() - 1].name = "circle" + std::to_string(i);
+		circles[circles.size() - 1].setColor(255, 255, 255);
+	}
 }
 
 void toad::delete_object(std::vector<Circle>& circles, int& element)
 {
-	//check if atleast 2 elements
-	//if (circles.size() > 1) circles.erase(circles.begin() + element ); 
 	if (circles.size() > 1) {
 		circles.erase(circles.begin() + (element));
 		element = 0;

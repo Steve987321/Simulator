@@ -12,12 +12,12 @@ Circle::Circle()
 	circleSegments = circle.getPointCount();
 }
 
-void Circle::update_position(std::vector<Circle>& circles, float simSpeed)
+void Circle::update_position(const std::vector<Circle>& circles, const float& simSpeed)
 {
 	float total_vx = 0, total_vy = 0;
 	for (Circle other : circles) {
 		if (this->name == other.name || !this->isActive || !other.isActive) continue;
-		sf::Vector2f vel = physics::calc_gravity_velocity_vec(*this, other);
+		sf::Vector2f vel = toad::physics::calc_gravity_velocity_vec(*this, other);
 		
 		total_vx += vel.x;
 		total_vy += vel.y;

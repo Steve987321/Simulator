@@ -27,7 +27,7 @@ namespace toad
 	void clean_up();
 
 	/// <summary>
-	/// Update variables of positions
+	/// Update variables.
 	/// </summary>
 	void onUpdate();
 
@@ -37,7 +37,7 @@ namespace toad
 	void onRender();
 
 	/// <summary>
-	/// handles events inputted from the user.
+	/// handles events inputted from the user and window events.
 	/// </summary>
 	void event_handler();
 }

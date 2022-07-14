@@ -4,9 +4,11 @@
 #include "helpers.h"
 #include "vars.h"
 
+namespace toad{
+
 namespace physics
 {
-	inline sf::Vector2f calc_gravity_velocity_vec(Circle circle, Circle other) {
+	inline sf::Vector2f calc_gravity_velocity_vec(const Circle& circle, const Circle& other) {
 		float distance_x = other.circle.getPosition().x - circle.circle.getPosition().x;
 		float distance_y = other.circle.getPosition().y - circle.circle.getPosition().y;
 		 
@@ -21,8 +23,5 @@ namespace physics
 		return sf::Vector2f(force_x, force_y);
 	}
 }
-//class physics {
-//	public:
-//
-//	};
 
+}
