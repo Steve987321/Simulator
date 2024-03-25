@@ -4,4 +4,7 @@ Simulator/bin-intermediate
 *.ipch
 Simulator/.vs
 *.sln
-
+.vscode/
+*.vcxproj
+*.filters
+*.user
