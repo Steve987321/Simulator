@@ -1,19 +1,7 @@
 
-Simulator/.vs/Simulator/v16/.suo
-Simulator/.vs/Simulator/v16/Browse.VC.db
-Simulator/.vs/Simulator/v16/Browse.VC.db-shm
-Simulator/.vs/Simulator/v16/Browse.VC.db-wal
-Simulator/.vs/Simulator/v16/Browse.VC.opendb
-Simulator/.vs/Simulator/v16/ipch/AutoPCH/6118aec6902c3ea5/MAIN.ipch
-Simulator/.vs/Simulator/v16/ipch/AutoPCH/7f0ca8eb2f5a67fe/MAIN.ipch
-Simulator/Debug/Simulator.exe
-Simulator/Debug/Simulator.ilk
-Simulator/Debug/Simulator.pdb
-Simulator/.vs/Simulator/v16/ipch/AutoPCH/2af5e9466bee5d52/MAIN.ipch
-Simulator/.vs/Simulator/v16/ipch/AutoPCH/12ff36696be58621/MAIN.ipch
-Simulator/.vs/Simulator/v16/ipch/AutoPCH/161462e6c2903da0/TOADSIM.ipch
-Simulator/.vs/Simulator/v16/ipch/AutoPCH/780a417b5d4795b3/IMGUI-SFML.ipch
-Simulator/.vs/Simulator/v16/ipch/AutoPCH/6a316d8cacbdb0c1/TOADSIM.ipch
-Simulator/.vs/Simulator/v16/ipch/AutoPCH/8f61ae2529c7a630/IMGUI-SFML.ipch
+Simulator/bin
+Simulator/bin-intermediate
 *.ipch
 Simulator/.vs
+*.sln
+

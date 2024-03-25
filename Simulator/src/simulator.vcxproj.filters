@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="SFML">
+      <UniqueIdentifier>{F7C68B7C-E3FD-8C0D-8CEA-72107800090F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SFML\SFML-2.6.1">
+      <UniqueIdentifier>{3A7DDE20-A608-4CE5-AF19-CFD91B24A8E5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SFML\SFML-2.6.1\include">
+      <UniqueIdentifier>{AD3ECA40-1976-12D8-2280-76FB8E3639D1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SFML\SFML-2.6.1\include\SFML">
+      <UniqueIdentifier>{EEA9EE85-DA64-DE31-831C-577C6FB628C2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SFML\SFML-2.6.1\include\SFML\Audio">
+      <UniqueIdentifier>{6F72AAF5-5BAE-AD5F-C4C0-C556B01B567A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SFML\SFML-2.6.1\include\SFML\Graphics">
+      <UniqueIdentifier>{EE7D43E8-5A42-42D8-23A8-72A28F2BDE0D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SFML\SFML-2.6.1\include\SFML\Network">
+      <UniqueIdentifier>{679A9CCE-5381-5EC6-FCD1-C4E3E897D72C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SFML\SFML-2.6.1\include\SFML\System">
+      <UniqueIdentifier>{426546D5-AE1E-B17F-377E-CB59A33667EF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SFML\SFML-2.6.1\include\SFML\Window">
+      <UniqueIdentifier>{157F76DD-8138-E187-0A98-FB61765097F7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="imgui">
+      <UniqueIdentifier>{0098A80F-6CAC-D0C0-352E-7420A101CDF1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="Circle.h" />
+    <ClInclude Include="Physics.h" />
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Audio.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Audio\AlResource.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Audio\Export.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Audio\InputSoundFile.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Audio\Listener.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Audio\Music.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Audio\OutputSoundFile.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Audio\Sound.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Audio\SoundBuffer.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Audio\SoundBufferRecorder.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Audio\SoundFileFactory.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Audio\SoundFileReader.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Audio\SoundFileWriter.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Audio\SoundRecorder.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Audio\SoundSource.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Audio\SoundStream.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Config.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\GpuPreference.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Graphics.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Graphics\BlendMode.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Graphics\CircleShape.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Graphics\Color.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Graphics\ConvexShape.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Graphics\Drawable.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Graphics\Export.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Graphics\Font.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Graphics\Glsl.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Graphics\Glyph.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Graphics\Image.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Graphics\PrimitiveType.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Graphics\Rect.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Graphics\RectangleShape.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Graphics\RenderStates.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Graphics\RenderTarget.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Graphics\RenderTexture.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Graphics\RenderWindow.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Graphics\Shader.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Graphics\Shape.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Graphics\Sprite.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Graphics\Text.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Graphics\Texture.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Graphics\Transform.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Graphics\Transformable.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Graphics\Vertex.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Graphics\VertexArray.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Graphics\VertexBuffer.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Graphics\View.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Main.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Network.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Network\Export.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Network\Ftp.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Network\Http.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Network\IpAddress.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Network\Packet.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Network\Socket.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Network\SocketHandle.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Network\SocketSelector.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Network\TcpListener.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Network\TcpSocket.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Network\UdpSocket.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\OpenGL.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\System.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\System\Clock.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\System</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\System\Err.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\System</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\System\Export.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\System</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\System\FileInputStream.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\System</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\System\InputStream.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\System</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\System\Lock.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\System</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\System\MemoryInputStream.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\System</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\System\Mutex.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\System</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\System\NativeActivity.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\System</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\System\NonCopyable.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\System</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\System\Sleep.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\System</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\System\String.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\System</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\System\Thread.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\System</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\System\ThreadLocal.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\System</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\System\ThreadLocalPtr.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\System</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\System\Time.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\System</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\System\Utf.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\System</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\System\Vector2.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\System</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\System\Vector3.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\System</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Window.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Window\Clipboard.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Window\Context.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Window\ContextSettings.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Window\Cursor.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Window\Event.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Window\Export.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Window\GlResource.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Window\Joystick.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Window\Keyboard.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Window\Mouse.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Window\Sensor.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Window\Touch.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Window\VideoMode.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Window\Vulkan.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Window\Window.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Window\WindowBase.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Window\WindowHandle.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML\SFML-2.6.1\include\SFML\Window\WindowStyle.hpp">
+      <Filter>SFML\SFML-2.6.1\include\SFML\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="helpers.h" />
+    <ClInclude Include="imgui\imconfig-SFML.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imconfig.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imgui-SFML.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imgui-SFML_export.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imgui.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imgui_internal.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imstb_rectpack.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imstb_textedit.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imstb_truetype.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="logger.h" />
+    <ClInclude Include="main.h" />
+    <ClInclude Include="toad.h" />
+    <ClInclude Include="ui.h" />
+    <ClInclude Include="vars.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Circle.cpp" />
+    <ClCompile Include="helpers.cpp" />
+    <ClCompile Include="imgui\imgui-SFML.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_draw.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_tables.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_widgets.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="toad.cpp" />
+    <ClCompile Include="ui.cpp" />
+  </ItemGroup>
+</Project>
