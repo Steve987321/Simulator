@@ -77,7 +77,7 @@ void ui::render_ui()
 		if (vars::circles[i].isActive) {
 			ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32(255, 255, 255, 255));
 			if (ImGui::Selectable(vars::circles[i].name.c_str(), is_selected)) {
-				strncpy_s(ui::objectName, vars::circles[i].name.c_str(), sizeof(vars::circles[i].name));
+				strncpy(ui::objectName, vars::circles[i].name.c_str(), sizeof(vars::circles[i].name));
 				itemInspecting = i;
 			}
 			ImGui::PopStyleColor();
@@ -85,7 +85,7 @@ void ui::render_ui()
 		else {
 			ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32(255, 255, 255, 157));
 			if (ImGui::Selectable(vars::circles[i].name.c_str(), is_selected)) {
-				strncpy_s(ui::objectName, vars::circles[i].name.c_str(), sizeof(vars::circles[i].name));
+				strncpy(ui::objectName, vars::circles[i].name.c_str(), sizeof(vars::circles[i].name));
 				itemInspecting = i;
 			}
 			ImGui::PopStyleColor();
@@ -100,7 +100,7 @@ void ui::render_ui()
 	// old
 	/*for (int i = 0; i < vars::circles.size(); i++) {
 		if (ImGui::Button(vars::circles[i].name.c_str(), ImVec2(100, 20))) {
-			strncpy_s(ui::objectName, vars::circles[i].name.c_str(), sizeof(circles[i].name));
+			strncpy(ui::objectName, vars::circles[i].name.c_str(), sizeof(circles[i].name));
 			itemInspecting = i;
 			break;
 		}

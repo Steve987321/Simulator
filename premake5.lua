@@ -1,5 +1,10 @@
 workspace "Simulator"
-    architecture "x86"
+    filter "system:macosx"
+        architecture "x86_64"
+    filter "system:windows"
+        architecture "x86"
+
+    filter {}
 
     configurations {
         "Debug",
@@ -9,8 +14,6 @@ workspace "Simulator"
 output_dir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 project "Simulator"
-    architecture "x86"
-
     location "src"
     kind "ConsoleApp"
     language "C++"
@@ -23,26 +26,36 @@ project "Simulator"
         "**.cpp",
         "**.h",
         "**.hpp",
+        "vendor/imgui/**.cpp"
     }
 
-    includedirs{
-        "src/SFML/SFML-2.6.1/include",
+    includedirs {
+        "vendor",
+        "vendor/SFML/SFML-2.6.1/include",
     }
 
     libdirs {
-        "src/SFML/SFML-2.6.1/lib"
+        "vendor/SFML/SFML-2.6.1/lib",
     }
 
-    defines {
-        "SFML_STATIC",
-    }
-
-    filter "configurations:Debug"
-        defines {
-            "_DEBUG",
-            "_WINDOWS"
+    filter "system:macosx"
+        links {
+            "OpenGL.framework",
+            "Cocoa.framework",
+            "IOKit.framework",
+            "CoreVideo.framework",
+            "sfml-system",
+            "sfml-window",
+            "sfml-graphics",
+            "sfml-audio",
         }
-
+    
+    filter {"system:windows", "configurations:Debug"}
+        defines {
+            "SFML_STATIC",
+            "_WINDOWS",
+        }
+    
         links {
             "opengl32",
             "winmm",
@@ -58,17 +71,14 @@ project "Simulator"
             "sfml-window-s-d",
             "sfml-graphics-s-d",
             "sfml-audio-s-d",
+        }   
+
+    filter {"system:windows", "configurations:Release"}
+        defines {
+            "SFML_STATIC",
+            "_WINDOWS",
         }
-
-        runtime "Debug"
-        symbols "On"
-        optimize "Off"
-
-    filter "configurations:Release"
-        defines{
-            "NDEBUG"
-        }
-
+    
         links {
             "opengl32",
             "winmm",
@@ -84,6 +94,20 @@ project "Simulator"
             "sfml-window-s",
             "sfml-graphics-s",
             "sfml-audio-s",
+        }   
+
+    filter "configurations:Debug"
+        defines {
+            "_DEBUG",
+        }
+
+        runtime "Debug"
+        symbols "On"
+        optimize "Off"
+
+    filter "configurations:Release"
+        defines{
+            "NDEBUG"
         }
 
         runtime "Release"

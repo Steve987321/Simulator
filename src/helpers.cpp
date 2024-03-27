@@ -27,7 +27,7 @@ void toad::add_object(std::vector<Circle>& circles)
 	else
 	{
 		//auto circle = std::make_unique<Circle>();
-		circles.push_back(Circle::Circle());
+		circles.emplace_back();
 		circles[circles.size() - 1].name = "circle" + std::to_string(i);
 		circles[circles.size() - 1].setColor(255, 255, 255);
 	}

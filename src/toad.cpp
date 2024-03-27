@@ -22,8 +22,8 @@ void load_default_scene()
 
 	//TODO: make it file based
 	
-	vars::circles.push_back(Circle::Circle());
-	vars::circles.push_back(Circle::Circle());
+	vars::circles.emplace_back();
+	vars::circles.emplace_back();
 	vars::circles[0].name = "circle1";
 	vars::circles[0].setColor(255, 255, 255);
 	vars::circles[0].isActive = true;
@@ -156,7 +156,7 @@ void toad::event_handler(sf::RenderWindow& window)
 					for (int i = 0; i < vars::circles.size(); i++)
 						if (vars::circles[i].circle.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)))
 						{
-							strncpy_s(ui::objectName, vars::circles[i].name.c_str(), sizeof(vars::circles[i].name));
+							strncpy(ui::objectName, vars::circles[i].name.c_str(), sizeof(vars::circles[i].name));
 							ui::itemInspecting = i;
 							break;
 						}

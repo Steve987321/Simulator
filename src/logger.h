@@ -1,6 +1,14 @@
 #pragma once
 
+#ifdef _WIN32
 #include <Windows.h>
+#else
+using HANDLE = void*;
+using WORD = unsigned short;
+inline void SetConsoleTextAttribute(HANDLE, int) {}
+inline void* GetStdHandle(void*) {return nullptr;}
+#define STD_OUTPUT_HANDLE 0
+#endif 
 #include <iostream>
 #include <shared_mutex>
 

@@ -1,10 +1,10 @@
-
-Simulator/bin
-Simulator/bin-intermediate
+bin/
+bin-intermediate/
 *.ipch
-Simulator/.vs
+.vs/
 *.sln
 .vscode/
 *.vcxproj
 *.filters
 *.user
+Makefile

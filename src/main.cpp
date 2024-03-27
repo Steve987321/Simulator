@@ -2,7 +2,9 @@
 #define DEBUG
 
 #include "toad.h"
+#ifdef _WIN32
 #include <Windows.h>
+#endif
 
 int main()
 {
@@ -10,7 +12,7 @@ int main()
 
 	if (!toad::init(window))
 		return 1;
-
+	
 	toad::run(window);
 	toad::clean_up(window);
 	return 0;

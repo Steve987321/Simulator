@@ -32,11 +32,7 @@ Index of this file:
 #define _CRT_SECURE_NO_WARNINGS
 #endif
 
-#include "../vars.h"
-
-#ifndef LOGGER_H
-#include "../logger.h"
-#endif
+#include "../../src/vars.h"
 
 #include "imgui.h"
 #ifndef IMGUI_DISABLE
