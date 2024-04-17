@@ -18,6 +18,6 @@ An old project made for school.
 5.  Run `bin/<output path>/Simulator`
 
 You might experience errors saying: **no RLPATH's found**.
-Set the rlpath by running `install_name_tool -add_rath @executable_path/. <output path>/Simulator`.
+Set the rlpath by running `install_name_tool -add_rpath @executable_path/. <output path>/Simulator`.
 
 ![image](https://github.com/Steve987321/Simulator/assets/88980055/c37f54fa-aaee-4068-87f4-3d787da4a9ea)
